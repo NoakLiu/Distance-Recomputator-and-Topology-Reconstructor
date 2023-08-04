@@ -168,8 +168,10 @@ class GraphKHopDecentDiffDistRecompAttentionLayer(nn.Module):
 
                 for i in range(1,self.hop_num):
                     k_mask_list[i]+=pos_mask_list[i-1]
+                    k_mask_list[i-1]-=pos_mask_list[i-1]
                 for i in range(0,self.hop_num-1):
-                    k_mask_list[i]+=neg_mask_list[i]
+                    k_mask_list[i+1]+=neg_mask_list[i]
+                    k_mask_list[i]-=neg_mask_list[i]
                 
                 if self.concat:
                     # 使用激活函数
@@ -277,26 +279,7 @@ class GKHDDRA(nn.Module):
 
     def forward(self, x):
         x = F.dropout(x, self.dropout, training=self.training)
-        """
-        print("attention 0 elem",self.attentions[0](x,adj))
-        print("attention elem shape",self.attentions[0](x,adj).shape)
-        """
-        """
-        attention 0 elem tensor([[-0.0068,  0.0113,  0.0025,  ..., -0.0331,  0.0052, -0.0216],
-                                [ 0.0000,  0.0000,  0.0000,  ...,  0.0000,  0.0000,  0.0000],
-                                [-0.0109,  0.0117,  0.0145,  ...,  0.0121,  0.0081, -0.0068],
-                                ...,
-                                [-0.0173, -0.0013, -0.0149,  ..., -0.0122, -0.0033,  0.0425],
-                                [ 0.0059,  0.0022,  0.0123,  ...,  0.0020, -0.0051,  0.0057],
-                                [ 0.0128, -0.0093,  0.0293,  ...,  0.0104,  0.0174,  0.0023]],
-                               grad_fn=<EluBackward0>)
-        attention elem shape torch.Size([2708, 8])
-        """
-        
-        #注意这里是聚合1layer的feature
-        # print(x.shape)
-        # print(k_mask_list)
-        # print(self.attentions[0](x,0.1))
+
         x = torch.cat([att(x,0.7) for att in self.attentions], dim=1)
         
         x = F.dropout(x, self.dropout, training=self.training)
@@ -421,6 +404,5 @@ compute_test()
 import matplotlib.pyplot as plt
 x=[x for x in range(0,len(loss_values))]
 plt.plot(x,loss_values)
-plt.show()
 plt.plot(x,acc_values)
-plt.show()
+plt.savefig("training-01.jpg")
