@@ -86,7 +86,7 @@ def laplacian(mx, norm):
     """Laplacian-normalize sparse matrix"""
     assert (all (len(row) == len(mx) for row in mx)), "Input should be a square matrix"
 
-    return csgraph.laplacian(adj, normed = norm)
+    return csgraph.laplacian(mx, normed = norm)
 
 def accuracy(output, labels):
     preds = output.max(1)[1].type_as(labels)

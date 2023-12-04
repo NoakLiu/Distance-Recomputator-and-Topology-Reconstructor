@@ -128,37 +128,6 @@ class Encoder(nn.Module):
         # if not gcn: (embed_dim, 2 * feat_dim)
         init.xavier_uniform_(self.weight)
 
-        # print(self.features) #Embedding(2708, 1433)
-        # print(self.feat_dim) #1433
-        # print(self.adj_lists) #adj_list {src_node:{to_nodes}}
-        # print(self.aggregator) #MeanAggregator()
-        # print(self.num_sample) #10
-        # print(base_model)
-        """
-        Encoder(
-          (features): Embedding(2708, 1433)
-          (aggregator): MeanAggregator(
-            (features): Embedding(2708, 1433)
-          )
-        )
-        """
-        # print(self.gcn) #True
-        # print(self.embed_dim) #128
-        # print(self.cuda) #False
-        # print("aggregator: ", self.aggregator) #aggregator:  MeanAggregator()
-        # print("weight: ", self.weight)
-        """
-        tensor([[-0.1422, -0.0802,  0.0455,  ..., -0.0922,  0.0607, -0.1466],
-        [ 0.0816, -0.1112, -0.0079,  ...,  0.0417, -0.0330, -0.0945],
-        [ 0.0754, -0.0852, -0.1137,  ..., -0.1153, -0.0737, -0.1089],
-        ...,
-        [ 0.0341, -0.0400, -0.0973,  ...,  0.0266, -0.1189,  0.0885],
-        [-0.1442, -0.1436,  0.0275,  ..., -0.0916, -0.0287, -0.0882],
-        [-0.0701,  0.0136,  0.0744,  ...,  0.0113, -0.0616,  0.0938]],
-       requires_grad=True)
-        """
-        # print("weight.shape: ", self.weight.shape) #weight.shape:  torch.Size([128, 128])
-
     def forward(self, nodes):
         """
         Generates embeddings for a batch of nodes.
@@ -168,17 +137,7 @@ class Encoder(nn.Module):
 
         neigh_feats = self.aggregator.forward(nodes, [self.adj_lists[int(node)] for node in nodes],
                                               self.num_sample)
-        # print("neigh_feat", neigh_feats.shape)
-        """
-        num_neigh.shape:  torch.Size([724, 1])
-        neigh_feat torch.Size([724, 1433])
-        neigh_feat torch.Size([256, 128])
-        """
-        """
-        num_neigh.shape:  torch.Size([677, 1])
-        neigh_feat torch.Size([677, 1433])
-        neigh_feat torch.Size([256, 128])
-        """
+
         if not self.gcn:
             if self.cuda:
                 self_feats = self.features(torch.LongTensor(nodes).cuda())
@@ -192,18 +151,6 @@ class Encoder(nn.Module):
         # print("A:: ",self.weight.shape)
         # print("B:: ",combined.t().shape)
         combined = F.relu(self.weight.mm(combined.t()))  # combined.t() * self.weight
-
-        # 如何得到self.weight, combined
-
-        # print("combined:: ", combined.shape)
-        """
-        neigh_feat torch.Size([694, 1433])
-        A::  torch.Size([128, 1433])
-        B::  torch.Size([694, 128])
-        neigh_feat torch.Size([256, 128])
-        A::  torch.Size([128, 128])
-        B::  torch.Size([256, 128])
-        """
 
         return combined
 
