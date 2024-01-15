@@ -1,32 +1,14 @@
 """
 Reference: https://github.com/Diego999/pyGAT/blob/master/layers.py
 """
-import argparse
-import numpy as np
-import torch
-import torch.nn as nn
-import torch.nn.functional as F
-import random
-from torch.autograd import Variable
+
 from data_preprocesing import load_data
 from data_preprocesing import accuracy
-
-import numpy as np
-import pickle as pkl
-import networkx as nx
-import scipy.sparse as sp
-import torch
-from scipy.sparse import csgraph
-import scipy.sparse.linalg
-import sys
 import time
 import argparse
-import numpy as np
 import torch
-import torch.nn.functional as F
 import torch.optim as optim
 import torch.nn as nn
-import torch.nn.functional as F
 import glob
 import os
 

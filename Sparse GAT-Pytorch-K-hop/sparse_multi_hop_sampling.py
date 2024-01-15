@@ -1,7 +1,6 @@
 import torch
 import random
 
-# sparse multi-hop graph sampling method
 def mulhop_edge_sample(src_t, dst_t, N, alpha):
     edge_mh = torch.tensor([[-1, -1]]).t()
     i = 0

@@ -1,0 +1,59 @@
+D:\Anaconda\exe\envs\stellar2\python.exe E:\github_projects\Distance-Recomputator-and-Topology-Reconstructor\Baselines\MAGNA\MAGNA.py
+
+[STEP 1]: Upload pubmed dataset.
+x.shape= (60, 500)
+y.shape= (60, 3)
+tx.shape= (1000, 500)
+ty.shape= (1000, 3)
+allx= (18717, 500)
+ally= (18717, 3)
+len(graph)= 19717
+| # of nodes : 19717
+| # of edges : 44325.5
+NA.shape (19717, 500)
+NA.dtype float32
+NA.type <class 'scipy.sparse.csr.csr_matrix'>
+| # of features : 500
+| # of clases   : 3
+| # of train set : 60
+| # of val set   : 500
+| # of test set  : 1000
+nfeat= 500
+nclass= 3
+dropout= 0.5
+Epoch: 0001 loss_train: 0.0085 acc_train: 0.3333 loss_val: -0.0690 acc_val: 0.4160 time: 1.0760s
+Epoch: 0002 loss_train: -0.0695 acc_train: 0.3333 loss_val: -0.1449 acc_val: 0.4160 time: 1.0260s
+Epoch: 0003 loss_train: -0.1603 acc_train: 0.3333 loss_val: -0.2278 acc_val: 0.4240 time: 0.8170s
+Epoch: 0004 loss_train: -0.3520 acc_train: 0.4000 loss_val: -0.3890 acc_val: 0.5000 time: 0.8550s
+Epoch: 0005 loss_train: -0.7234 acc_train: 0.6500 loss_val: -0.4976 acc_val: 0.5040 time: 0.8100s
+Epoch: 0006 loss_train: -0.9418 acc_train: 0.7000 loss_val: -0.4428 acc_val: 0.4880 time: 0.7900s
+Epoch: 0007 loss_train: -0.9070 acc_train: 0.7000 loss_val: -0.5360 acc_val: 0.5400 time: 0.9810s
+Epoch: 0008 loss_train: -1.0462 acc_train: 0.7833 loss_val: -0.6479 acc_val: 0.6060 time: 0.9550s
+Epoch: 0009 loss_train: -1.2141 acc_train: 0.9833 loss_val: -0.5005 acc_val: 0.5420 time: 1.7610s
+Epoch: 0010 loss_train: -1.2148 acc_train: 0.9500 loss_val: -0.4926 acc_val: 0.5360 time: 0.8930s
+Epoch: 0011 loss_train: -1.3313 acc_train: 1.0000 loss_val: -0.5082 acc_val: 0.5520 time: 0.8640s
+Epoch: 0012 loss_train: -1.3606 acc_train: 1.0000 loss_val: -0.4841 acc_val: 0.5640 time: 0.8540s
+Epoch: 0013 loss_train: -1.3393 acc_train: 1.0000 loss_val: -0.4568 acc_val: 0.5780 time: 0.8370s
+Epoch: 0014 loss_train: -1.3367 acc_train: 1.0000 loss_val: -0.4423 acc_val: 0.5620 time: 0.8850s
+Epoch: 0015 loss_train: -1.3608 acc_train: 1.0000 loss_val: -0.4677 acc_val: 0.5740 time: 1.1060s
+Epoch: 0016 loss_train: -1.3796 acc_train: 1.0000 loss_val: -0.5297 acc_val: 0.5780 time: 1.0420s
+Epoch: 0017 loss_train: -1.4021 acc_train: 1.0000 loss_val: -0.6130 acc_val: 0.6120 time: 1.0350s
+Epoch: 0018 loss_train: -1.4199 acc_train: 1.0000 loss_val: -0.6738 acc_val: 0.6500 time: 1.1100s
+Epoch: 0019 loss_train: -1.4285 acc_train: 1.0000 loss_val: -0.6958 acc_val: 0.6540 time: 0.9880s
+Epoch: 0020 loss_train: -1.4296 acc_train: 1.0000 loss_val: -0.7094 acc_val: 0.6460 time: 1.0020s
+Epoch: 0021 loss_train: -1.4282 acc_train: 1.0000 loss_val: -0.7070 acc_val: 0.6420 time: 0.9970s
+Epoch: 0022 loss_train: -1.4284 acc_train: 1.0000 loss_val: -0.6852 acc_val: 0.6240 time: 1.0110s
+Epoch: 0023 loss_train: -1.4323 acc_train: 1.0000 loss_val: -0.6576 acc_val: 0.6200 time: 0.9750s
+Epoch: 0024 loss_train: -1.4383 acc_train: 1.0000 loss_val: -0.6320 acc_val: 0.6180 time: 0.9640s
+Epoch: 0025 loss_train: -1.4434 acc_train: 1.0000 loss_val: -0.6134 acc_val: 0.6120 time: 1.3070s
+Epoch: 0026 loss_train: -1.4463 acc_train: 1.0000 loss_val: -0.6075 acc_val: 0.6120 time: 1.3850s
+Epoch: 0027 loss_train: -1.4489 acc_train: 1.0000 loss_val: -0.6202 acc_val: 0.6180 time: 0.9390s
+Epoch: 0028 loss_train: -1.4536 acc_train: 1.0000 loss_val: -0.6467 acc_val: 0.6300 time: 0.9620s
+Epoch: 0029 loss_train: -1.4601 acc_train: 1.0000 loss_val: -0.6748 acc_val: 0.6440 time: 0.8760s
+Epoch: 0030 loss_train: -1.4660 acc_train: 1.0000 loss_val: -0.7053 acc_val: 0.6440 time: 0.8750s
+Optimization Finished!
+Total time elapsed: 30.5480s
+Loading 19th epoch
+Test set results: loss= -0.7118 accuracy= 0.6390
+
+Process finished with exit code 0

@@ -46,18 +46,6 @@ class SGC(nn.Module):
         x = self.linear(x)
         return x
 
-# def normalize_adj(adj):
-#     """Symmetrically normalize adjacency matrix."""
-#     adj = sp.coo_matrix(adj)
-#     rowsum = np.array(adj.sum(1))
-#     d_inv_sqrt = np.power(rowsum, -0.5).flatten()
-#     d_inv_sqrt[np.isinf(d_inv_sqrt)] = 0.
-#     d_mat_inv_sqrt = sp.diags(d_inv_sqrt)
-#     return adj.dot(d_mat_inv_sqrt).transpose().dot(d_mat_inv_sqrt).tocoo()
-
-# Instantiate the SGC model
-# Here, I'm assuming a hypothetical number of classes C.
-# You should replace it with the actual number of classes or output features you need.
 model = SGC(F, C, K=2)
 
 # Forward propagate the data through the model
@@ -124,8 +112,6 @@ def compute_test():
           "loss= {:.4f}".format(loss_test.data.item()),
           "accuracy= {:.4f}".format(acc_test.data.item()))
 
-# Rest of your code remains largely the same ...
-
 t_total = time.time()
 loss_values = []
 acc_values = []
@@ -174,4 +160,3 @@ x=[x for x in range(0,len(loss_values))]
 plt.plot(x,loss_values)
 plt.plot(x,acc_values)
 plt.savefig("training-01.jpg")
-

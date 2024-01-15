@@ -129,10 +129,6 @@ model = S2GC(nfeat=features.shape[1],
 
 optimizer = optim.Adam(model.parameters(), lr=args.lr, weight_decay=args.weight_decay)
 
-# Training and Testing methods remain the same as your previous code
-
-# ... [Continue with training, validation, testing, and plotting]
-
 def train(epoch):
     t = time.time()
     model.train()

@@ -3,9 +3,6 @@
 
 # Sampling Module for dense
 
-# In[ ]:
-
-
 nodes_to_nghs={}
 def single_node_sample_around(center_node, num_sample, adj_lists):
     """
@@ -39,10 +36,6 @@ def single_node_sample_around(center_node, num_sample, adj_lists):
         if(len(nodes_to_nghs[center_node])<len(samp_neighs)):
             nodes_to_nghs[center_node]=samp_neighs
     return samp_neighs
-
-
-# In[ ]:
-
 
 def sample_around_for_khop(center_nodes, k, num_sample,adj_lists):
     """
@@ -1069,10 +1062,3 @@ model.load_state_dict(torch.load('{}.pkl'.format(best_epoch)))
 
 # Testing
 compute_test()
-
-
-# In[ ]:
-
-
-
-
